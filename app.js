@@ -1,10 +1,19 @@
-function sortear(){
-    let quantidade = document.getElementById("quantidade").value;
-    let de = document.getElementById("de").value;
-    let ate = document.getElementById("ate").value;
+function sortear() {
+  let quantidade = parseInt(document.getElementById("quantidade").value);
+  let de = parseInt(document.getElementById("de").value);
+  let ate = parseInt(document.getElementById("ate").value);
 
-    console.log(`A quantidade é ${quantidade}`)
-    console.log(`A quantidade de é ${de}`)
-    console.log(`A quantidade até é ${ate}`)
+  let sorteados = [];
+  let numero;
 
+  for (let a = 0; a < quantidade; a++) {
+    numero = obterNumeroAleatorio(de, ate);
+    sorteados.push(numero);
+  }
+  console.log(sorteados);
+}
+
+//Função gerar número aleatório.
+function obterNumeroAleatorio(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
 }
